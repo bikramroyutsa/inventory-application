@@ -1,0 +1,20 @@
+{
+  "name": "inventory-application",
+  "version": "1.0.0",
+  "description": "Inventory application using nodejs, express and postgresql",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9",
+    "pg": "^8.13.3"
+  }
+}
