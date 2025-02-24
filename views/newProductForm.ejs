@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Add product</h1>
-    <form action="/products/new-product" method="POST">
+    <form action="/products/new-product" method="POST" enctype="multipart/form-data">
       <label for="name">Name: </label>
       <input type="text" id="name" name="name" />
       <label for="price">Price: </label>
@@ -20,6 +20,14 @@
         <option><%= c.cat_name %></option>
         <% }) }%>
       </select>
+      <label for="imageInput">Upload image</label>
+      <input
+        type="file"
+        name="image"
+        id="image"
+        accept="image/*"
+        required
+      />
       <button>Submit</button>
     </form>
   </body>

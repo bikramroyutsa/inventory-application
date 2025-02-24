@@ -1,4 +1,5 @@
 import pool from "./pool.js";
+import storeImageInCloud from "../tools/cloudinary old.js";
 const query = (() => {
   async function getAllCategories() {
     const { rows } = await pool.query("SELECT * FROM categories");
@@ -16,13 +17,13 @@ const query = (() => {
     const { rows } = await pool.query("SELECT * FROM products");
     return rows;
   }
-  async function addNewProduct(name, price, category, stock) {
+  async function addNewProduct(name, price, category, stock, img_link) {
     await pool.query(
       `
-      INSERT INTO products(name, price, category, stock)
-        VALUES ($1, $2, $3, $4)
+      INSERT INTO products(name, price, category, stock, img_link)
+        VALUES ($1, $2, $3, $4, $5)
       `,
-      [name, price, category, stock]
+      [name, price, category, stock, img_link]
     );
   }
   return { getAllProducts, addNewProduct, getAllCategories, addNewCategory };
