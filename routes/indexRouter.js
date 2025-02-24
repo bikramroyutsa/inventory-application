@@ -11,3 +11,8 @@ indexRouter.post("/new-category", async (req, res) => {
   await query.addNewCategory(cat_name);
   res.redirect("/");
 });
+indexRouter.get("/category/:cat_name", async (req, res) => {
+  const cat_name = req.params.cat_name;
+  const products = await query.getProductsByCategory(cat_name);
+  res.render("productsByCategory", { category: cat_name, products: products });
+});

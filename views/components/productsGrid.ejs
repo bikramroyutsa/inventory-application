@@ -1,0 +1,11 @@
+<div class="products-container">
+    <% if(products.length > 0){ %> <% products.map(p=>{ %>
+    <div class="product">
+      <h2 class="product-name"><%= p.name %></h2>
+      <img class="product-img" src="<%= p.img_link %>" alt="" />
+      <div class="product-category">Category: <%= p.category %></div>
+      <div class="product-price">Price: <%= p.price %></div>
+      <div class="product-stock">Available pieces: <%= p.stock %></div>
+    </div>
+    <% }) }%>
+  </div>

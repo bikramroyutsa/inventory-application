@@ -3,14 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Products</title>
+    <title><%= category %></title>
     <link rel="stylesheet" href="/products.css" />
   </head>
   <body>
-    <h1>Products</h1>
-    <form action="/products/new-product" method="GET">
-      <button>Add product</button>
-    </form>
+    <h1><%= category %></h1>
     <%- include('./components/productsGrid', {products: products}) %>
   </body>
 </html>
