@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <link rel="stylesheet" href="products.css" />
+  </head>
+  <body>
+    <h1>Products</h1>
+    <form action="/products/new-product" method="GET">
+      <button>Add product</button>
+    </form>
+    <div class="products-container">
+      <% if(products.length > 0){ %> <% products.map(p=>{ %>
+      <div class="product">
+        <h2 class="product-name"><%= p.name %></h2>
+        <img class="product-img" src="<%= p.img_link %>" alt="" />
+        <div class="product-category">Category: <%= p.category %></div>
+        <div class="product-price">Price: <%= p.price %></div>
+        <div class="product-stock">Available pieces: <%= p.stock %></div>
+      </div>
+      <% }) }%>
+    </div>
+  </body>
+</html>

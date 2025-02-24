@@ -1,7 +1,13 @@
 import { Router } from "express";
-import { getAllCategories } from "../db/query.js";
 export const indexRouter = Router();
-
+import query from "../db/query.js";
 indexRouter.get("/", async (req, res) => {
-  res.render("index");
+  const categories = await query.getAllCategories();
+  res.render("index", { categories: categories });
+});
+indexRouter.get("/new-category", (req, res) => res.render("newCategoryForm"));
+indexRouter.post("/new-category", async (req, res) => {
+  const { cat_name } = req.body;
+  await query.addNewCategory(cat_name);
+  res.redirect("/");
 });

@@ -7,7 +7,12 @@
   </head>
   <body>
     <h2>Categories</h2>
-
+    <form action="/new-category" method="GET">
+      <button>Add Category</button>
+    </form>
+    <% if(categories.length > 0){ %> <% categories.map(c=>{ %>
+    <a href="/category/<%= c.cat_name %>"><%= c.cat_name %></a>
+    <% }) }%>
     <form action="/products" method="GET">
       <button class="btnViewProducts">Products</button>
     </form>

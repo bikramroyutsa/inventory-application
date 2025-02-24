@@ -1,5 +1,6 @@
 import express from "express";
 import { indexRouter } from "./routes/indexRouter.js";
+import { productRouters} from "./routes/productsRouter.js";
 import path from "path";
 import url from "url";
 
@@ -14,6 +15,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", indexRouter);
+app.use("/products", productRouters);
 
 app.listen(3000, () => {
   console.log("listening");

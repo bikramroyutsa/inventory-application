@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add product</title>
+  </head>
+  <body>
+    <h1>Add product</h1>
+    <form action="/products/new-product" method="POST">
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name" />
+      <label for="price">Price: </label>
+      <input type="number" name="price" id="price" />
+      <label for="stock">Stock: </label>
+      <input type="number" name="stock" id="stock" />
+      <label for="category">Category: </label>
+      <select name="category" id="category">
+        <% if(categories.length > 0){ %> <% categories.map(c=>{ %>
+        <option><%= c.cat_name %></option>
+        <% }) }%>
+      </select>
+      <button>Submit</button>
+    </form>
+  </body>
+</html>
