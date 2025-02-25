@@ -1,0 +1,17 @@
+<head>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<div class="home-header">
+  <div class="home-title">Anime Figure Inventory</div>
+</div>
+<% if(btns){%>
+
+<div class="view-choice">
+  <form action="/" method="get">
+    <button>View categories</button>
+  </form>
+  <form action="/products" method="GET">
+    <button class="btnViewProducts">View All Products</button>
+  </form>
+</div>
+<% } %>

@@ -19,10 +19,11 @@ INSERT INTO products (name, price, category, img_link, stock) VALUES
 
 CREATE TABLE IF NOT EXISTS categories(
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    cat_name VARCHAR(255)
+    cat_name VARCHAR(255),
+    cat_link
 );
 INSERT INTO categories (cat_name) VALUES
-  ('Death Note'), ('Attack On Titan'), ('Blue Lock');
+  ('Death Note',''), ('Attack On Titan', ''), ('Blue Lock', '');
 `;
 async function main() {
   console.log("seeding");

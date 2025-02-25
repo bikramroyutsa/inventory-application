@@ -6,13 +6,18 @@
     <title>Add Category</title>
   </head>
   <body>
-    <form action="/new-category" method="POST">
+    <%- include("./components/common", {btns: false}) %>
+    <h1>Add new category</h1>
+    <form action="/new-category" method="POST" enctype="multipart/form-data">
+      <label for="cat_name">Category name: </label>
       <input
         type="text"
         placeholder="Category name"
         name="cat_name"
         id="cat_name"
       />
+      <label for="imageInput">Upload image</label>
+      <input type="file" name="image" id="image" accept="image/*" required />
       <button>Add</button>
     </form>
   </body>

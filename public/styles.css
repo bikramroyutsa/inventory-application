@@ -1,0 +1,31 @@
+.home-header {
+  display: flex;
+  justify-content: center;
+}
+.home-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.categories-container {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+}
+.view-choice {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+.categories-control-tab {
+  display: flex;
+  justify-content: center;
+}
+.category-img {
+  height: 200px;
+  width: auto;
+}
+.category {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}

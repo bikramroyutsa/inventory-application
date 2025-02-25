@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/products.css" />
   </head>
   <body>
+    <%- include('./components/common',{btns: false}) %>
+
     <h1><%= category %></h1>
     <%- include('./components/productsGrid', {products: products}) %>
   </body>

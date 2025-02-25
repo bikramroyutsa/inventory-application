@@ -4,25 +4,25 @@ const query = (() => {
     const { rows } = await pool.query("SELECT * FROM categories");
     return rows;
   }
-  async function addNewCategory(name) {
+  async function addNewCategory(obj, imageLink) {
     await pool.query(
       `
-      INSERT INTO categories(cat_name) VALUES ($1)
+      INSERT INTO categories(cat_name, cat_img) VALUES ($1, $2)
       `,
-      [name]
+      [obj.name, imageLink]
     );
   }
   async function getAllProducts() {
     const { rows } = await pool.query("SELECT * FROM products");
     return rows;
   }
-  async function addNewProduct(name, price, category, stock, img_link) {
+  async function addNewProduct(obj, img_link) {
     await pool.query(
       `
       INSERT INTO products(name, price, category, stock, img_link)
         VALUES ($1, $2, $3, $4, $5)
       `,
-      [name, price, category, stock, img_link]
+      [obj.name, obj.price, obj.category, obj.stock, img_link]
     );
   }
   async function getProductsByCategory(category) {
