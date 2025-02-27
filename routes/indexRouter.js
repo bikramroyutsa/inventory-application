@@ -19,10 +19,3 @@ indexRouter.get("/category/:cat_name", async (req, res) => {
   const products = await query.getProductsByCategory(cat_name);
   res.render("productsByCategory", { category: cat_name, products: products });
 });
-
-
-// async (req, res) => {
-//   const { cat_name } = req.body;
-//   await query.addNewCategory(cat_name);
-//   res.redirect("/");
-// }

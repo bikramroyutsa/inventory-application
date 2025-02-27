@@ -22,7 +22,7 @@
       <label for="category">Category: </label>
       <select name="category" id="category">
         <% if(categories.length > 0){ %> <% categories.map(c=>{ %>
-        <option><%= c.cat_name %></option>
+        <option value="<%= c.cat_name %>"><%= c.cat_name %></option>
         <% }) }%>
       </select>
       <label for="image">Upload image</label>

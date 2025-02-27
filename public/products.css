@@ -6,7 +6,11 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
-.products-control-tab{
+.products-control-tab {
   display: flex;
   justify-content: center;
+}
+.product-edit-img-preview {
+  height: 200px;
+  width: auto;
 }

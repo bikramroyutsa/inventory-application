@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit product</title>
+    <link rel="stylesheet" href="/products.css">
+  </head>
+  <body>
+    <%-include("./components/common", {btns: false}) %>
+    <h1>edit <%= product.name %></h1>
+    <form
+      action="/products/<%=product.id %>/edit"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <input type="hidden" name="id" value="<%= product.id %>" />
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name" value="<%= product.name %>" />
+      <label for="price">Price: </label>
+      <input type="number" name="price" id="price"  value="<%= product.price %>"/>
+      <label for="stock" >Stock: </label>
+      <input type="number" name="stock" id="stock" value="<%= product.stock %>"  />
+      <label for="category">Category: </label>
+      <select name="category" id="category">
+        <% if(categories.length > 0){ %> <% categories.map(c=>{ %>
+        <option value="<%= c.cat_name %>" <%= product.category === c.cat_name ? 'selected' : '' %>> <%= c.cat_name %></option>
+        <% }) }%>
+      </select>
+      <label for="image">Upload image</label>
+      <input class="new-img-input" type="file" name="image" id="image" accept="image/*" />
+      <div class="img-container" style="display: flex;">
+        <div>
+          <div>Selected image</div>
+          <img class="product-edit-img-preview" src="<%= product.img_link %>" alt="<%=product.name %>">
+        </div>
+        <div>
+          <div>New image</div>
+          <img class="new-img-preview" src="#" alt="uploaded img preview" style="max-height: 200px; display: none;">
+        </div>
+      </div>
+      <button>Submit</button>
+    </form>
+  </body>
+</html>
+<script>
+  const newImgInput = document.querySelector(".new-img-input")
+  const newImgPreview = document.querySelector(".new-img-preview")
+  newImgInput.addEventListener('change', event=>{
+    const file = newImgInput.files[0]
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = function(e) {
+        newImgPreview.src = e.target.result;
+        newImgPreview.style.display = 'block';
+      };
+
+      reader.readAsDataURL(file);
+    } else {
+      newImgPreview.src = '#';
+      newImgPreview.style.display = 'none';
+    }
+  })
+</script>
