@@ -2,7 +2,7 @@
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <div class="home-header">
-  <div class="home-title">Anime Figure Inventory</div>
+  <div class="home-title" onclick="goToHome('')">Anime Figure Inventory</div>
 </div>
 <% if(btns){%>
 
@@ -15,3 +15,9 @@
   </form>
 </div>
 <% } %>
+
+<script>
+  function goToHome(link) {
+    window.location.href = `/${link}`;
+  }
+</script>

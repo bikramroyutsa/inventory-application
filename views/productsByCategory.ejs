@@ -8,8 +8,10 @@
   </head>
   <body>
     <%- include('./components/common',{btns: false}) %>
-
     <h1><%= category %></h1>
+    <form action="/products/new-product" method="GET">
+      <button>Add product</button>
+    </form>
     <%- include('./components/productsGrid', {products: products}) %>
   </body>
 </html>

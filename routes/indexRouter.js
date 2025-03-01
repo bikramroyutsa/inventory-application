@@ -19,3 +19,10 @@ indexRouter.get("/category/:cat_name", async (req, res) => {
   const products = await query.getProductsByCategory(cat_name);
   res.render("productsByCategory", { category: cat_name, products: products });
 });
+indexRouter.post("/category/:cat_name/delete", async (req, res) => {
+  // res.send("hi");
+  const cat_name = req.params.cat_name;
+  // console.log(cat_name)
+  await query.deleteCategory(cat_name);
+  res.redirect("/");
+});

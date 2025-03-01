@@ -42,7 +42,6 @@ const query = (() => {
     return rows;
   }
   async function editProduct(obj, img_link) {
-    let optional = ``;
     let sql = `UPDATE products SET name = '${obj.name}', 
                   price =${obj.price}, category = '${obj.category}', 
                   stock = ${obj.stock} WHERE id = ${obj.id}`;
@@ -55,6 +54,13 @@ const query = (() => {
 
     await pool.query(sql);
   }
+  async function deleteProductsInCategory(category) {
+    await pool.query(`DELETE FROM products WHERE category = ($1)`, [category]);
+  }
+  async function deleteCategory(cat_name) {
+    await pool.query(`DELETE FROM categories WHERE cat_name = ($1)`, [cat_name]);
+    await deleteProductsInCategory(cat_name);
+  }
   return {
     getAllProducts,
     addNewProduct,
@@ -64,6 +70,7 @@ const query = (() => {
     deleteProduct,
     getProductByID,
     editProduct,
+    deleteCategory,
   };
 })();
 export default query;

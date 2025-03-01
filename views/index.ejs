@@ -15,14 +15,23 @@
     </div>
     <div class="categories-container">
       <% if(categories.length > 0){ %> <% categories.map(c=>{ %>
-      <div class="category" onclick="goToLink('<%= c.cat_name %>')">
-        <div><%= c.cat_name %></div>
+      <div class="category">
+        <div onclick="goToLink('<%= c.cat_name %>')"><%= c.cat_name %></div>
         <% if(c.cat_img){%>
         <img
+          onclick="goToLink('<%= c.cat_name %>')"
           class="category-img"
           src="<%= c.cat_img %>"
           alt="<%= c.cat_name %>"
         />
+        <form action="/category/<%=c.cat_name%>/delete" method="POST">
+          <button
+            class="btn-category-delete"
+            onclick="return confirm('if you delete this category, all the items in this category will be deleted')"
+          >
+            Delete
+          </button>
+        </form>
         <% } %>
       </div>
       <% }) }%>
